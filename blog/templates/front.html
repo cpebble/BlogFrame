@@ -1,0 +1,15 @@
+{% extends "masterview.html" %}
+{% block content %}
+Velkommen til bloggen.
+Her er nogle blog posts
+{% for post in posts%}
+    <div class="post">
+    <h2 class="postTitle">{{post.title}}</h2>
+    <span class='byline'><a href="/author/{{post.author.id}}"><i class="postAuthor">{{post.author.name}}</i></a> - <a href="/post/{{post.postId}}/{{post.shortTitle}}">{{ post.published|date:"H:i D. d/m - y" }}</a> </span>
+    <div class="postBody">{{post.body|linebreaks}}</div>
+    </div>
+{% endfor %}
+<div class="navigation">
+    <a></a> <a href="/page/1/">Næste</a>
+</div>
+{% endblock %}

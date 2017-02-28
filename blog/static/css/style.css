@@ -1,0 +1,69 @@
+html {
+    height: 100%
+}
+body {
+    margin: 0;
+    background: linear-gradient(to bottom, green, white);
+    height: 100%;
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+}
+#header {
+    margin: 0 0 3em 0;
+    background-color: gray;
+    padding: 1em;
+}
+#content {
+    width: 70vw;
+    margin: 0 auto;
+    border-radius:
+}
+#footer {
+    position: absolute;
+    bottom: 0;
+    height: 2em;
+    width: 100vw;
+    background: gray;
+    padding: 1em 1em 0.5em 2em;
+}
+#footer p{
+    display: inline;
+    z-index: 2;
+
+}
+
+.post {
+    border: 1px solid black;
+    margin: 2em;
+    padding-left: 1em;
+    background-color: lightgray;
+    box-shadow: 0px 5px 20px -5px gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.post .postTitle {
+    padding-left: 1em;
+    font-family: sans-serif;
+    margin-bottom: 0;
+}
+.post .byline{
+    padding-left: 2em;
+
+}
+.post .byline a {
+    text-decoration: none;
+    color: gray;
+}
+.post .byline a:hover{
+    color: darkgray;
+}
+
+.post .postBody {
+    /*max-height: 15em;*/
+    overflow-y: hidden;
+    margin-bottom: 1em;
+}
+.post .postBody p {
+    word-wrap: break-word;
+    padding: 0 10% 1em 5%;
+}
