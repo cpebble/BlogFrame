@@ -1,0 +1,8 @@
+{% extends "masterview.html" %}
+{%block title %} Authors {% endblock %}
+{%block content%}
+{% for author in authors %}
+<h1>{{author.name}}</h1>
+<div class="authorBody">{{author.description|linebreaks}}</div>
+{% endfor %}
+{%endblock%}
