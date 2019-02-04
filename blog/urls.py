@@ -7,5 +7,6 @@ urlpatterns = [
     url(r'^page/([\w ]+)', views.page ),
     url(r'^post/([\w ]+)/.*', views.post),
     url(r'^author/([\w ]+)', views.author),
+    url(r'^authors/', views.authorlist),
     url(r'^$', views.front, name='front'),
 ]

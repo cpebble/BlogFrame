@@ -12,6 +12,7 @@ class Post(models.Model):
     published=models.DateTimeField()
 
     body = models.TextField()
+    shortBody = models.TextField(blank=True);
     author=models.ForeignKey('Author', on_delete=models.CASCADE, blank=True, default=1)
 
     def save(self):
@@ -21,6 +22,8 @@ class Post(models.Model):
             self.published = self.created
         if not self.shortTitle:
             self.shortTitle = self.title[0:20]
+        if not self.shortBody:
+            self.shortBody = self.body[:1000]
         super(Post, self).save()
     def __str__(self):
         return "%02d / %s - %s" % (self.created.day, self.created.month, self.shortTitle)

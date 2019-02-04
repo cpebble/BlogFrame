@@ -3,15 +3,25 @@ html {
 }
 body {
     margin: 0;
-    background: linear-gradient(to bottom, green, white);
+    background: linear-gradient(to bottom, #ebebeb, white);
     height: 100%;
     overflow-x: hidden;
     background-repeat: no-repeat;
+    font-family: sans-serif;
 }
 #header {
     margin: 0 0 3em 0;
-    background-color: gray;
+    background-color: #ebebeb;
     padding: 1em;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+#header *:first-child{
+    padding-right: 10px;
+}
+#header > *:last-child{
+    padding-left: 10px;
 }
 #content {
     width: 70vw;
@@ -30,6 +40,11 @@ body {
     display: inline;
     z-index: 2;
 
+}
+@media only screen and (max-width: 500px) {
+    #content{
+        width: 100vw;
+    }
 }
 
 .post {

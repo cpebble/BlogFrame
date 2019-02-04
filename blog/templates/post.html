@@ -1,6 +1,26 @@
 {% extends "masterview.html" %}
 {%block title %} - {{post.title}} {% endblock %}
 {%block content%}
+<style>
+#post {
+    border: 1px solid black;
+    margin: 2em;
+    padding-left: 1em;
+    background-color: lightgray;
+    box-shadow: 0px 5px 20px -5px gray;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+#post a {
+    text-decoration: none;
+}
+#post p{
+    margin-left: 3em;
+}
+</style>
+<div id="post">
 <h1>{{post.title}}</h1>
+<span class='byline'><a href="/author/{{post.author.id}}"><i class="postAuthor">{{post.author.name}}</i></a> - <a href="/post/{{post.postId}}/{{post.shortTitle}}">{{ post.published|date:"H:i D. d/m - y" }}</a> </span>
 <div class="postBody">{{post.body|linebreaks}}</div>
+</div>
 {%endblock%}

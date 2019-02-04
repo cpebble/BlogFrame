@@ -5,7 +5,7 @@ from back import models
 from datetime import datetime
 
 #Variables
-postCount = 3   # How many posts per page
+postCount = 5   # How many posts per page
 
 
 
@@ -20,13 +20,15 @@ def page(request, page):
     try:
         page = int(page)#page is passed as a string
     except Exception as e:
-        return HttpResponse("Error occured: <br/> %s" % e)
+        page = 0
 
     timeStamp = datetime.now()
     pFrom = page*postCount      #Slice from
     pTo   = (page+1)*postCount  #Slice to
     blogPosts = models.Post.objects.filter(published__lt=timeStamp)[pFrom:pTo]
     return render(request, 'page.html', {'posts' : blogPosts, 'page' : page})
+
+
 
 def post(request, id):
     try:
@@ -38,6 +40,8 @@ def post(request, id):
     #     return HttpResponse("Post not found, or has not been created yet")
     return render(request, 'post.html', {'post':post})
 
+
+
 def author(request, authId):
     try:
         authId = int(authId)
@@ -45,3 +49,10 @@ def author(request, authId):
     except Exception as e:
         return HttpResponse("Author not found")
     return render(request, 'author.html', {'author' : author})
+
+def authorlist(request):
+    try:
+        authors = models.Author.objects.filter(id__gt=1)
+    except Exception as e:
+        return HttpResponse("No Authors found. Error %s" % e)
+    return render(request, 'authors.html', {'authors' : authors})
